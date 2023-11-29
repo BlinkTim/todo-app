@@ -44,14 +44,16 @@
                                 <tbody>
                                     {% for item in items %}
                                     <tr>
-                                        <th scope="row">nummer fehlt</th>
+					    <th scope="row">{{loop.index}}</th>
                                         <td>{{item.description}}</td>
                                         <td>open</td>
                                         <td class="d-flex">
                                             <form class="w-50" action="/delete" method="post">
+						<input type="hidden" name="itemId" value="{{item.itemId}}">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                             <form class="w-50" action="/start" method="post">
+						<input type="hidden" name="itemId" value="{{item.itemId}}">
                                                 <button type="submit" class="btn btn-success ms-1">Start</button>
                                             </form>
                                         </td>
