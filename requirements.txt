@@ -3,3 +3,4 @@ uvicorn
 pydantic
 mysql-connector-python
 jinja2
+python-multipart

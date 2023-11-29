@@ -16,6 +16,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 ## Links 
 - [Fastapi tutorial] (https://fastapi.tiangolo.com/tutorial/)
 - [Jinja2 loops] (https://ttl255.com/jinja2-tutorial-part-2-loops-and-conditionals/#loops)
+- To use forms, first install python-multipart. pip install python-multipart.(https://fastapi.tiangolo.com/tutorial/request-forms/)
 
 ## Benutzung
 python -m venv env

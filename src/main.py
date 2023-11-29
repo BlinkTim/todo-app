@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form 
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from typing import Annotated
 
 app = FastAPI()
 
@@ -11,7 +12,8 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 @app.post("/save", response_class=HTMLResponse)
-async def save_list(request: Request):
+async def save_list(request: Request, item:Annotated[str, Form()]):
+    print(item)
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post("/delete", response_class=HTMLResponse)
