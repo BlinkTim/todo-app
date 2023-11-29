@@ -26,7 +26,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Add a new todo list item
-new_task = TodoListItems(description="buy shoes", status="done")
+new_task = TodoListItems(description="buy shoes", status=ItemStatus.OPEN)
 session.add(new_task)
 session.commit()
 
