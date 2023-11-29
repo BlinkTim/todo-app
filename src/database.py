@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Enum
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,6 +8,11 @@ engine = create_engine('mysql+mysqlconnector://todo_user:todo_password@localhost
 
 
 Base = declarative_base()
+
+class ItemStatus(Enum):
+    OPEN='open'
+    INPROGRESS='in progress'
+    FINISHED='finished'
 
 class TodoListItems(Base):
     __tablename__ = 'items'
