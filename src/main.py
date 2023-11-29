@@ -23,7 +23,7 @@ class TodoItemList(list):
         super().append(item)
     def remove(self, item):
         for myitem in self[:]:
-            if str(myitem.itemId) == item or myitem.itemId == UUID4(item):
+            if str(myitem.itemId) == item or myitem.itemId == uuid.UUID(item):
                 print("Deleting:", item)
                 super().remove(myitem)
             
