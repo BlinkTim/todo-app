@@ -16,27 +16,6 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 
-class ItemStatus(Enum):
-    OPEN='open'
-    INPROGRESS='in progress'
-    FINISHED='finished'
-
-class OldTodoItem(BaseModel):
-    itemId: UUID4
-    description:str
-    status: ItemStatus
-
-class OldTodoItemList(list):
-    def append(self, item):
-        if not isinstance(item, TodoListItem):
-            raise TypeError("Only ToDoItem instances can be added to the list")
-        super().append(item)
-    def remove(self, item):
-        for myitem in self[:]:
-            if str(myitem.itemId) == item:
-                print("Deleting:", item)
-                super().remove(myitem)
-
 class TodoItemList(list):
     def __init__(self, session):
         self.session = session
@@ -59,9 +38,11 @@ class TodoItemList(list):
             raise e
 
     def remove(self, item):
+        print("Removing:", item)
         to_remove = None
-        for myitem in self:
-            if myitem.id == item:
+        for myitem in self[:]:
+            print("Current item is ", myitem.id)
+            if str(myitem.id) == item:
                 to_remove = myitem
                 break
         if to_remove:
