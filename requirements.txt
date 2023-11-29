@@ -5,3 +5,5 @@ mysql-connector-python
 jinja2
 python-multipart
 sqlalchemy
+mysql-connector-python
+
