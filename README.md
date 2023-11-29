@@ -14,6 +14,9 @@ Erstelle Dir ein Repository in Deinem Github Account und übertrage den Code dor
 Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 
 ## Benutzung
+python -m venv env
+danach environment aktivieren
+https://fastapi.tiangolo.com/tutorial/
 uvicorn main:app --reload
 ### Zusatzaufgabe
 Deploye Deine Anwendung auf einer EC2 Instanz inkl. Datenbank.
