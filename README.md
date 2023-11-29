@@ -13,5 +13,7 @@ Die einzelenen ToDos sollen in einer MYSQL Datenbank gespeichert werden inkl. de
 Erstelle Dir ein Repository in Deinem Github Account und übertrage den Code dorthin.
 Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 
+## Benutzung
+uvicorn main:app --reload
 ### Zusatzaufgabe
 Deploye Deine Anwendung auf einer EC2 Instanz inkl. Datenbank.
