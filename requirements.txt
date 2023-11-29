@@ -2,4 +2,4 @@ fastapi
 uvicorn
 pydantic
 mysql-connector-python
-
+jinja2
