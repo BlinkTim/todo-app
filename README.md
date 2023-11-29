@@ -21,7 +21,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Implement DELETE Funktion ❌
 - Implement Status Update Support ❌
 - Implement .env (dotenv) File Support ❌
-- Implement mySQL-Database Integration ❌
+- Implement mySQL-Database Integration (momentan nur database.py) ❌
 - Add comments to source code, update Readme.md ❌
 - Implement Userdata Script ❌
 - Implement CloudFormation Template ❌
@@ -32,6 +32,7 @@ Wir erstellen eine Server-Anwendung die auf uvicorn basiert.
 Wir erstellen verschiedene Routen die mit FastAPI implementiert werden.
 Wir benutzen Jinja2 als Templating Engine um HTML Dateien aus einem Verzeichnis namens templates zu laden, und dort bestimmte Variablen zu ersetzen bzw. Bedingungen auszuführen.
 Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jedes items wird mittels uuid4() generiert.
+Wir verwenden SQLAlchemy für das Speichern innerhalb einer Datenbank.
 
 - [Frontend Intro](https://docs.google.com/presentation/d/1YoxRv7m7NmFjPQwffTqlgyJt0wIOvlMiX2XDnBZWjbY) 
 - [Fastapi tutorial](https://fastapi.tiangolo.com/tutorial/)
@@ -45,8 +46,12 @@ Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jede
 - [Remove elements from List](https://www.geeksforgeeks.org/how-to-remove-an-item-from-the-list-in-python/)
 - [Python enum](https://www.geeksforgeeks.org/enum-in-python/)
 - [Python enum value attribute](https://docs.python.org/3/howto/enum.html)
+- [SQLAlchemy QuickStart](https://docs.sqlalchemy.org/en/20/orm/quickstart.html)
+- [SQLAlchemy Reference](https://docs.sqlalchemy.org/en/20/orm/)
+- [Understanding SQLAlchemy](https://dev.to/ajipelumi/understanding-sqlalchemy-orm-and-sqlalchemy-core-3nm5)
 
 ## Benutzung (unter GitBash)
+
 python -m venv env
 
 danach environment aktivieren mittels:
@@ -54,6 +59,9 @@ danach environment aktivieren mittels:
 source env/Scripts/activate
 
 pip install -r requirements.txt
+
+mysql -u root -p < sql-scripts/01-prepare-db.sql
+
 cd src
 uvicorn main:app --reload
 
