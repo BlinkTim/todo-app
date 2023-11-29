@@ -1,3 +1,5 @@
+from enum import Enum
+
 from fastapi import FastAPI, Request, Form 
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -12,11 +14,15 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 
+class ItemStatus(Enum):
+    OPEN='open'
+    INPROGRESS='in progress'
+    FINISHED='finished'
 
 class TodoItem(BaseModel):
     itemId: UUID4
     description:str
-    status: str 
+    status: ItemStatus
     
 class TodoItemList(list):
     def append(self, item):
@@ -38,7 +44,7 @@ async def save_list(request: Request, item:Annotated[str, Form()]):
     print(item)
     myuuid = uuid.uuid4()
     print('Your UUID is: ' + str(myuuid))
-    task=TodoItem(description=item, itemId=str(myuuid), status="open") 
+    task=TodoItem(description=item, itemId=str(myuuid), status=ItemStatus.OPEN) 
     items.append(task)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
