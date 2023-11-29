@@ -54,11 +54,11 @@
                                         <td>{{item.status.value}}</td>
                                         <td class="d-flex">
                                             <form class="w-50" action="/delete" method="post">
-                                                <input type="hidden" name="itemId" value="{{item.itemId}}">
+                                                <input type="hidden" name="itemId" value="{{item.id}}">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                             <form class="w-50" action="{% if item.status.value == 'open' %}/start{% else %}/finish{% endif %}" method="post">
-                                                <input type="hidden" name="itemId" value="{{ item.itemId }}">
+                                                <input type="hidden" name="itemId" value="{{ item.id }}">
                                                 {% if item.status.value == "open" %}
                                                     <button type="submit" class="btn btn-success ms-1">Start</button>
                                                 {% elif item.status.value == "in progress" %}
