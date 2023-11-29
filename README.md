@@ -14,9 +14,11 @@ Erstelle Dir ein Repository in Deinem Github Account und übertrage den Code dor
 Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 
 ## Links 
-- [Fastapi tutorial] (https://fastapi.tiangolo.com/tutorial/)
-- [Jinja2 loops] (https://ttl255.com/jinja2-tutorial-part-2-loops-and-conditionals/#loops)
-- To use forms, first install python-multipart. pip install python-multipart.(https://fastapi.tiangolo.com/tutorial/request-forms/)
+- [Fastapi tutorial](https://fastapi.tiangolo.com/tutorial/)
+- [Jinja2 loops](https://ttl255.com/jinja2-tutorial-part-2-loops-and-conditionals/#loops)
+- [To use forms, first install python-multipart. pip install python-multipart](https://fastapi.tiangolo.com/tutorial/request-forms/)
+- [pydantic data model](https://docs.pydantic.dev/latest/examples/secrets/)
+- [pydantic BaseModel](https://docs.pydantic.dev/latest/concepts/models/)
 
 ## Benutzung
 python -m venv env
