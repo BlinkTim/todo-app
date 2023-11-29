@@ -57,17 +57,15 @@
                                                 <input type="hidden" name="itemId" value="{{item.itemId}}">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
-                                            <form class="w-50" action="/start" method="post">
-                                                <input type="hidden" name="itemId" value="{{item.itemId}}">
+                                            <form class="w-50" action="{% if item.status.value == 'open' %}/start{% else %}/finish{% endif %}" method="post">
+                                                <input type="hidden" name="itemId" value="{{ item.itemId }}">
                                                 {% if item.status.value == "open" %}
-                                                    <button type="submit" class="btn btn-success ms-1">Start </button>
-                                                {% elif item.status.value == "in progress"%}
-                                                    <button type="submit" class="btn btn-success ms-1">Finished</button>
-                                                {% elif item.status.value == "finished"%}
-                                                    <button class= "disabled btn btn-success ms-1">Finished</button>
-                                        
+                                                    <button type="submit" class="btn btn-success ms-1">Start</button>
+                                                {% elif item.status.value == "in progress" %}
+                                                    <button type="submit" class="btn btn-warning ms-1">Finish</button>
+                                                {% elif item.status.value == "finished" %}
+                                                    <button class="disabled btn btn-secondary ms-1">Finished</button>
                                                 {% endif %}
-
                                             </form>
                                         </td>
                                     </tr>
