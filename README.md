@@ -42,6 +42,7 @@ Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jede
 - [Pydantic UUID](https://docs.pydantic.dev/2.0/usage/types/uuids/)
 - [UUID Example](https://docs.pydantic.dev/latest/concepts/fields/)
 - [Jinja2 loop.index](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+- [Remove elements from List](https://www.geeksforgeeks.org/how-to-remove-an-item-from-the-list-in-python/)
 
 ## Benutzung (unter GitBash)
 python -m venv env
