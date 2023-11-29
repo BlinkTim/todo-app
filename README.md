@@ -13,11 +13,24 @@ Die einzelenen ToDos sollen in einer MYSQL Datenbank gespeichert werden inkl. de
 Erstelle Dir ein Repository in Deinem Github Account und übertrage den Code dorthin.
 Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 
-## Links
+## Backlog
+- Adapt template to support looping ✅
+- Implement routes for DELETE, START and DELETE ✅
+- Use placerholder data ✅
+- Integrate FastAPI and  Pydantic ✅
+- Implement DELETE Funktion ❌
+- Implement Status Update Support ❌
+- Implement mySQL-Database Integration ❌
+- Add comments to source code, update Readme.md ❌
+- Implement Userdata Script ❌
+- Implement CloudFormation Template ❌
+- Test on EC2 ❌
+
+## Ressourcen
 Wir erstellen eine Server-Anwendung die auf uvicorn basiert.
 Wir erstellen verschiedene Routen die mit FastAPI implementiert werden.
 Wir benutzen Jinja2 als Templating Engine um HTML Dateien aus einem Verzeichnis namens templates zu laden, und dort bestimmte Variablen zu ersetzen bzw. Bedingungen auszuführen.
-Wir benutzen Pydantic als Datenmodell für die Liste der Todo items.
+Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jedes items wird mittels uuid4() generiert.
 
 - [Frontend Intro](https://docs.google.com/presentation/d/1YoxRv7m7NmFjPQwffTqlgyJt0wIOvlMiX2XDnBZWjbY) 
 - [Fastapi tutorial](https://fastapi.tiangolo.com/tutorial/)
