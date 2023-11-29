@@ -44,6 +44,7 @@ Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jede
 - [Jinja2 loop.index](https://jinja.palletsprojects.com/en/3.0.x/templates/)
 - [Remove elements from List](https://www.geeksforgeeks.org/how-to-remove-an-item-from-the-list-in-python/)
 - [Python enum](https://www.geeksforgeeks.org/enum-in-python/)
+- [Python enum value attribute](https://docs.python.org/3/howto/enum.html)
 
 ## Benutzung (unter GitBash)
 python -m venv env
