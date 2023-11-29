@@ -17,6 +17,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 python -m venv env
 danach environment aktivieren source env/Scripts/activate(mit Git Bash)
 https://fastapi.tiangolo.com/tutorial/
+pip install -r requirements.txt
 uvicorn main:app --reload
 ### Zusatzaufgabe
 Deploye Deine Anwendung auf einer EC2 Instanz inkl. Datenbank.
