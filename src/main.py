@@ -18,6 +18,10 @@ class TodoItemList(list):
         if not isinstance(item, TodoItem):
             raise TypeError("Only ToDoItem instances can be added to the list")
         super().append(item)
+    def remove(self, item):
+        for myitem in items:
+            if myitem.itemId == item.itemId:
+                self.remove(myitem)
 
 # app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -37,6 +41,7 @@ async def save_list(request: Request, item:Annotated[str, Form()]):
 @app.post("/delete", response_class=HTMLResponse)
 async def delete_route(request: Request, itemId:Annotated[str, Form()]):
     print("Deleting item:", itemId)
+    items.remove(itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/start", response_class=HTMLResponse)
