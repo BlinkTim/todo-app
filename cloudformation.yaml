@@ -1,0 +1,145 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Cloudformation_DB
+# Metadata: 
+
+# Parameters: 
+
+# Mappings: 
+
+# Conditions: 
+
+Resources: 
+
+###########
+# VPC with Subnets
+###########
+
+  myVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: Cloudformation
+  mySubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: eu-central-1a
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.0.0/24
+      Tags:
+        - Key: name
+          Value: cloudformation
+  mySubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: eu-central-1b
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.1.0/24
+      Tags:
+        - Key: name
+          Value: cloudformation
+
+###########
+# IGW
+###########
+
+  igwName:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: name
+          Value: cloudformation
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref myVPC
+      InternetGatewayId: !Ref igwName
+
+###########
+# RouteTable
+###########
+
+  routeTableName:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref myVPC
+      Tags:
+        - Key: name
+          Value: cloudformation
+ 
+  routeTableAssocName1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref mySubnet1
+      RouteTableId: !Ref routeTableName
+  
+  routeTableAssocName2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref mySubnet2
+      RouteTableId: !Ref routeTableName
+
+  defaultRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref routeTableName
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref igwName
+
+###########
+# Security Group
+###########
+
+  secGroupName:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: security-group
+      GroupDescription: permit http
+      VpcId: !Ref myVPC
+      SecurityGroupIngress:
+        -   IpProtocol: tcp
+            FromPort: 80
+            ToPort: 80
+            CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: name
+          Value: cloudformation
+
+###########
+# EC2
+###########
+
+  myEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:    
+      DisableApiTermination: true
+      ImageId: ami-01342111f883d5e4e
+      InstanceType: t2.micro
+      Monitoring: false
+      SubnetId: !Ref mySubnet1
+      SecurityGroupIds:
+        - !Ref secGroupName
+      UserData: !Base64 |
+        #!/bin/bash -ex
+        yum update -y 
+        yum install httpd -y
+        yum install mysql-server -y
+        systemctl enable httpd
+        systemctl start httpd              
+      Tags:
+        - Key: name
+          Value: cloudformation
+
+
+###########
+# Outputs
+###########
+
+Outputs:
+  VPCid:
+    Description: the VPC id
+    Value: !Ref myVPC
+  
