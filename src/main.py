@@ -25,5 +25,7 @@ async def start_route(request: Request):
 
 @app.get("/", response_class=HTMLResponse)
 async def root_route(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    items = [1,2,3,4,5,6]
+    return templates.TemplateResponse("index.html", {"request": request, "items":items})
+
 

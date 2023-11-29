@@ -42,8 +42,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for item in items %}
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row">{{item}}</th>
                                         <td>Buy groceries for next week</td>
                                         <td>open</td>
                                         <td class="d-flex">
@@ -55,33 +56,8 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Buy groceries for next week</td>
-                                        <td>In progress</td>
-                                        <td class="d-flex">
-                                            <form class="w-50">
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                            <form class="w-50">
-                                                <button type="submit" class="btn btn-success ms-1">Finished</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td><s>Buy groceries for next week</s></td>
-                                        <td>Finished</td>
-                                        <td class="d-flex">
-                                            <form class="w-50">
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                            <form class="w-50">
-                                                <button type="submit"
-                                                    class=" disabled btn btn-success ms-1">Finished</button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
+                                    
                                 </tbody>
                             </table>
 
