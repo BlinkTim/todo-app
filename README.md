@@ -20,6 +20,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Integrate FastAPI and  Pydantic ✅
 - Implement DELETE Funktion ❌
 - Implement Status Update Support ❌
+- Implement .env (dotenv) File Support ❌
 - Implement mySQL-Database Integration ❌
 - Add comments to source code, update Readme.md ❌
 - Implement Userdata Script ❌
