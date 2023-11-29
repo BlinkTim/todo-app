@@ -13,10 +13,14 @@ Die einzelenen ToDos sollen in einer MYSQL Datenbank gespeichert werden inkl. de
 Erstelle Dir ein Repository in Deinem Github Account und übertrage den Code dorthin.
 Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 
+## Links 
+- [Fastapi tutorial] (https://fastapi.tiangolo.com/tutorial/)
+- [Jinja2 loops] (https://ttl255.com/jinja2-tutorial-part-2-loops-and-conditionals/#loops)
+
 ## Benutzung
 python -m venv env
 danach environment aktivieren source env/Scripts/activate(mit Git Bash)
-https://fastapi.tiangolo.com/tutorial/
+
 pip install -r requirements.txt
 cd src
 uvicorn main:app --reload
