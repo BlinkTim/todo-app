@@ -46,6 +46,9 @@ Wir verwenden SQLAlchemy für das Speichern innerhalb einer Datenbank.
 - [Remove elements from List](https://www.geeksforgeeks.org/how-to-remove-an-item-from-the-list-in-python/)
 - [Python enum](https://www.geeksforgeeks.org/enum-in-python/)
 - [Python enum value attribute](https://docs.python.org/3/howto/enum.html)
+- [SQLAlchemy QuickStart](https://docs.sqlalchemy.org/en/20/orm/quickstart.html)
+- [SQLAlchemy Reference](https://docs.sqlalchemy.org/en/20/orm/)
+- [Understanding SQLAlchemy](https://dev.to/ajipelumi/understanding-sqlalchemy-orm-and-sqlalchemy-core-3nm5)
 
 ## Benutzung (unter GitBash)
 python -m venv env
