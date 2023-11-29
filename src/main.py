@@ -10,6 +10,8 @@ import uuid
 
 import uvicorn
 
+import database
+
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
