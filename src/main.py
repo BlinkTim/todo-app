@@ -6,6 +6,8 @@ from typing import Annotated, List
 from pydantic import BaseModel, UUID4
 import uuid
 
+import uvicorn
+
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
@@ -56,4 +58,9 @@ async def start_route(request: Request,itemId:Annotated[str, Form()]):
 async def root_route(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
+def start_server():
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, log_level="debug", reload=True)
+
+if __name__ == "__main__":
+    start_server()
 

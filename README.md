@@ -53,5 +53,9 @@ source env/Scripts/activate
 pip install -r requirements.txt
 cd src
 uvicorn main:app --reload
+
+Alternativ (innerhalb des src Unterverzeichnis):
+python main.py
+
 ### Zusatzaufgabe
 Deploye Deine Anwendung auf einer EC2 Instanz inkl. Datenbank.
