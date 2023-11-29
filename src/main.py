@@ -10,7 +10,20 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 
+@app.post("/save", response_class=HTMLResponse)
+async def save_list(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.post("/delete", response_class=HTMLResponse)
+async def delete_route(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.post("/start", response_class=HTMLResponse)
+async def start_route(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
 
 @app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
+async def root_route(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+

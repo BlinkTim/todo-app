@@ -19,7 +19,7 @@
 
                             <h4 class="text-center my-3 pb-3">To Do App</h4>
 
-                            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                            <form action="/save" method="post" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                                 <div class="col-12">
                                     <div class="form-outline">
                                         <input type="text" id="form1" class="form-control"
@@ -47,10 +47,10 @@
                                         <td>Buy groceries for next week</td>
                                         <td>open</td>
                                         <td class="d-flex">
-                                            <form class="w-50">
+                                            <form class="w-50" action="/delete" method="post">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
-                                            <form class="w-50">
+                                            <form class="w-50" action="/start" method="post">
                                                 <button type="submit" class="btn btn-success ms-1">Start</button>
                                             </form>
                                         </td>
