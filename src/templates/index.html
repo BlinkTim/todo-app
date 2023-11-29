@@ -46,7 +46,7 @@
                                     {% for item in items %}
                                     <tr>
                                         <th scope="row">{{loop.index}}</th>
-                                        {% if item.status == "finished" %}
+                                        {% if item.status.value == "finished" %}
                                         <td><s>{{item.description}}</s></td>
                                         {% else %}
                                         <td>{{item.description}}</td>
