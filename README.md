@@ -21,7 +21,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Implement DELETE Funktion ❌
 - Implement Status Update Support ❌
 - Implement .env (dotenv) File Support ❌
-- Implement mySQL-Database Integration ❌
+- Implement mySQL-Database Integration (momentan nur database.py) ❌
 - Add comments to source code, update Readme.md ❌
 - Implement Userdata Script ❌
 - Implement CloudFormation Template ❌
@@ -51,6 +51,7 @@ Wir verwenden SQLAlchemy für das Speichern innerhalb einer Datenbank.
 - [Understanding SQLAlchemy](https://dev.to/ajipelumi/understanding-sqlalchemy-orm-and-sqlalchemy-core-3nm5)
 
 ## Benutzung (unter GitBash)
+
 python -m venv env
 
 danach environment aktivieren mittels:
@@ -58,6 +59,9 @@ danach environment aktivieren mittels:
 source env/Scripts/activate
 
 pip install -r requirements.txt
+
+mysql -u root -p < sql-scripts/01-prepare-db.sql
+
 cd src
 uvicorn main:app --reload
 
