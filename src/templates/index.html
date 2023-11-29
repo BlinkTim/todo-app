@@ -51,7 +51,7 @@
                                         {% else %}
                                         <td>{{item.description}}</td>
                                         {% endif %}
-                                        <td>{{item.status}}</td>
+                                        <td>{{item.status.value}}</td>
                                         <td class="d-flex">
                                             <form class="w-50" action="/delete" method="post">
                                                 <input type="hidden" name="itemId" value="{{item.itemId}}">
