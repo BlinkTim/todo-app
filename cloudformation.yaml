@@ -128,7 +128,9 @@ Resources:
         yum install httpd -y
         yum install mysql-server -y
         systemctl enable httpd
-        systemctl start httpd              
+        systemctl start httpd
+        yum install python3 -y
+        pip install -r requirements.txt              
       Tags:
         - Key: name
           Value: cloudformation
