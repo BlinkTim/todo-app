@@ -8,6 +8,9 @@ import uuid
 
 app = FastAPI()
 
+templates = Jinja2Templates(directory="templates")
+
+
 class TodoItem(BaseModel):
     itemId: UUID4
     description:str
@@ -19,15 +22,14 @@ class TodoItemList(list):
             raise TypeError("Only ToDoItem instances can be added to the list")
         super().append(item)
     def remove(self, item):
-        for myitem in items:
-            if myitem.itemId == item.itemId:
-                self.remove(myitem)
-
-# app.mount("/static", StaticFiles(directory="static"), name="static")
-
-templates = Jinja2Templates(directory="templates")
+        for myitem in self[:]:
+            if str(myitem.itemId) == item or myitem.itemId == UUID(item):
+                print("Deleting:", item)
+                super().remove(myitem)
+            
 items = TodoItemList()
 
+# app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.post("/save", response_class=HTMLResponse)
 async def save_list(request: Request, item:Annotated[str, Form()]):
