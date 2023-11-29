@@ -18,6 +18,7 @@ python -m venv env
 danach environment aktivieren source env/Scripts/activate(mit Git Bash)
 https://fastapi.tiangolo.com/tutorial/
 pip install -r requirements.txt
+cd src
 uvicorn main:app --reload
 ### Zusatzaufgabe
 Deploye Deine Anwendung auf einer EC2 Instanz inkl. Datenbank.
