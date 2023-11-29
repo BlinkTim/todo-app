@@ -19,7 +19,8 @@
 
                             <h4 class="text-center my-3 pb-3">To Do App</h4>
 
-                            <form action="/save" method="post" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                            <form action="/save" method="post"
+                                class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                                 <div class="col-12">
                                     <div class="form-outline">
                                         <input type="text" name="item" id="form1" class="form-control"
@@ -44,22 +45,34 @@
                                 <tbody>
                                     {% for item in items %}
                                     <tr>
-					    <th scope="row">{{loop.index}}</th>
+                                        <th scope="row">{{loop.index}}</th>
+                                        {% if item.status == "finished" %}
+                                        <td><s>{{item.description}}</s></td>
+                                        {% else %}
                                         <td>{{item.description}}</td>
-                                        <td>open</td>
+                                        {% endif %}
+                                        <td>{{item.status}}</td>
                                         <td class="d-flex">
                                             <form class="w-50" action="/delete" method="post">
-						<input type="hidden" name="itemId" value="{{item.itemId}}">
+                                                <input type="hidden" name="itemId" value="{{item.itemId}}">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                             <form class="w-50" action="/start" method="post">
-						<input type="hidden" name="itemId" value="{{item.itemId}}">
-                                                <button type="submit" class="btn btn-success ms-1">Start</button>
+                                                <input type="hidden" name="itemId" value="{{item.itemId}}">
+                                                {% if item.status == "open" %}
+                                                    <button type="submit" class="btn btn-success ms-1">Start </button>
+                                                {% elif item.status == "in progress"%}
+                                                    <button type="submit" class="btn btn-success ms-1">Finished</button>
+                                                {% elif item.status == "finished"%}
+                                                    <button class= "disabled btn btn-success ms-1">Finished</button>
+                                        
+                                                {% endif %}
+
                                             </form>
                                         </td>
                                     </tr>
                                     {% endfor %}
-                                    
+
                                 </tbody>
                             </table>
 

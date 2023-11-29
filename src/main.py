@@ -38,7 +38,7 @@ async def save_list(request: Request, item:Annotated[str, Form()]):
     print(item)
     myuuid = uuid.uuid4()
     print('Your UUID is: ' + str(myuuid))
-    task=TodoItem(description=item, itemId=str(myuuid), status="neu") 
+    task=TodoItem(description=item, itemId=str(myuuid), status="open") 
     items.append(task)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
