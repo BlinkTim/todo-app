@@ -25,15 +25,14 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Add a new user
+# Add a new todo list item
 new_task = TodoListItems(description="buy shoes", status="done")
 session.add(new_task)
 session.commit()
 
-# Query users
+# Query tasks
 tasks = session.query(TodoListItems).all()
 for task in tasks:
         print(task.description)
-
 
 session.close()
