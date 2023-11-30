@@ -20,7 +20,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Integrate FastAPI and  Pydantic ✅
 - Implement DELETE Funktion ✅
 - Implement Status Update Support ✅
-- Implement .env (dotenv) File Support ✅
+- Implement .env (dotenv) File Support 
 - Implement mySQL-Database Integration (momentan nur database.py) ✅
 - Add comments to source code, update Readme.md ✅
 - Implement Userdata Script ✅
@@ -29,11 +29,11 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Test on EC2 ❌
 
 ## Ressourcen
-Wir erstellen eine Server-Anwendung die auf uvicorn basiert.
-Wir erstellen verschiedene Routen die mit FastAPI implementiert werden.
-Wir benutzen Jinja2 als Templating Engine um HTML Dateien aus einem Verzeichnis namens templates zu laden, und dort bestimmte Variablen zu ersetzen bzw. Bedingungen auszuführen.
-Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jedes items wird mittels uuid4() generiert.
-Wir verwenden SQLAlchemy für das Speichern innerhalb einer Datenbank.
+Wir erstellen eine Server-Anwendung die auf uvicorn (ASGI) basiert.
+Wir erstellen verschiedene Routen (Endpoints) die mit FastAPI implementiert werden.
+Wir benutzen Jinja2 als Templating Engine um HTML Dateien aus einem Verzeichnis namens templates zu laden, und dort bestimmte Variablen zu ersetzen bzw. Bedingungen/Schleifen auszuführen.
+Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jedes items ist ein Integer (autoincrement).
+Wir verwenden SQLAlchemy für das Speichern innerhalb einer Datenbank (ORM).
 
 - [Frontend Intro](https://docs.google.com/presentation/d/1YoxRv7m7NmFjPQwffTqlgyJt0wIOvlMiX2XDnBZWjbY) 
 - [Fastapi tutorial](https://fastapi.tiangolo.com/tutorial/)
