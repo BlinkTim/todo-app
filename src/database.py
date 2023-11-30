@@ -8,7 +8,6 @@ from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('mysql+mysqlconnector://todo_user:todo_password@localhost/todos')
 
-
 Base = declarative_base()
 
 class ItemStatus(enum.Enum):
@@ -27,14 +26,3 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Add a new todo list item
-#new_task = TodoListItems(description="buy shoes", status=ItemStatus.OPEN)
-#session.add(new_task)
-#session.commit()
-
-# Query tasks
-#tasks = session.query(TodoListItems).all()
-#for task in tasks:
-#        print(task.description)
-
-#session.close()
