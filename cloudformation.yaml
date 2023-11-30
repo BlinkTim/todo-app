@@ -129,7 +129,7 @@ Resources:
         yum install python3 python3-pip -y
         pip install -r requirements.txt
         #download zipfile and unzip and cd in the new folder
-        wget url
+        wget https://s3.amazonaws.com/todolist-bucket-1/todo-app.zip
         unzip todo-app.zip
         cd todo-app
         mysql -u root -p < sql-scripts/01-prepare-db.sql
