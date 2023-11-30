@@ -25,8 +25,8 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Add comments to source code ❌
 - update Readme.md ⌛
 - Finish Userdata Script ⌛
-    Test locally under WSL/Ubuntu (apt instead of yum)❌
-    Test standalone on EC2 (Amazon Linux: yum instead of apt) ❌
+   * Test locally under WSL/Ubuntu (apt instead of yum)❌
+   * Test standalone on EC2 (Amazon Linux: yum instead of apt) ❌
 - Implement CloudFormation Template ⌛
 - Create s3 bucket ✅
 - Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
