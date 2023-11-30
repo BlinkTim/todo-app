@@ -130,8 +130,8 @@ Resources:
         pip install -r requirements.txt
         #download zipfile and unzip and cd in the new folder
         wget url
-        unzip file.zip
-        cd directory
+        unzip todo-app.zip
+        cd todo-app
         mysql -u root -p < sql-scripts/01-prepare-db.sql
         cd src
         uvicorn main:app --reload
