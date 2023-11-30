@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from typing import Annotated, List
 from pydantic import BaseModel
+import logging
 
 import uvicorn
 
@@ -35,10 +36,10 @@ class TodoItemList(list):
             raise e
 
     def remove(self, item):
-        print("Removing:", item)
+        logging.info("Removing:", item)
         to_remove = None
         for myitem in self[:]:
-            print("Current item is ", myitem.id)
+            logging.info("Current item is ", myitem.id)
             if str(myitem.id) == item:
                 to_remove = myitem
                 break
@@ -58,29 +59,29 @@ items = TodoItemList(database.session)
 
 @app.post("/save", response_class=HTMLResponse)
 async def save_list(request: Request, item:Annotated[str, Form()]):
-    print(item)
+    logging.info(item)
     task=database.TodoListItem(description=item, status=database.ItemStatus.OPEN) 
     items.append(task)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/delete", response_class=HTMLResponse)
 async def delete_route(request: Request, itemId:Annotated[str, Form()]):
-    print("Deleting item:", itemId)
+    logging.info("Deleting item:", itemId)
     items.remove(itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/start", response_class=HTMLResponse)
 async def start_route(request: Request, itemId:Annotated[str, Form()]):
     for item in items:
-        print("Prüfe item.id", item.id)
-        print("Teste itemId", itemId)
+        logging.info("Prüfe item.id", item.id)
+        logging.info("Teste itemId", itemId)
         if str(item.id) == itemId:
-            print("itemId ist", itemId)
+            logging.info("itemId ist", itemId)
             if item.status == database.ItemStatus.OPEN:
                  item.status = database.ItemStatus.INPROGRESS
-                 print (itemId)
+                 logging.info(itemId)
             break 
-    print("Starting item:", itemId) 
+    logging.info("Starting item:", itemId) 
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/finish", response_class=HTMLResponse)
@@ -89,9 +90,9 @@ async def finish_route(request: Request, itemId:Annotated[str, Form()]):
         if str(item.id) == itemId:
             if item.status == database.ItemStatus.INPROGRESS:
                  item.status = database.ItemStatus.FINISHED
-                 print(itemId)
+                 logging.info(itemId)
             break 
-    print("Finishing item:", itemId)
+    logging.info("Finishing item:", itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 

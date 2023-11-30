@@ -62,6 +62,7 @@ Diese sollten innerhalb eines Python venv installiert werden.
 - [SQLAlchemy QuickStart](https://docs.sqlalchemy.org/en/20/orm/quickstart.html)
 - [SQLAlchemy Reference](https://docs.sqlalchemy.org/en/20/orm/)
 - [Understanding SQLAlchemy](https://dev.to/ajipelumi/understanding-sqlalchemy-orm-and-sqlalchemy-core-3nm5)
+- [Python LOGGING](https://docs.python.org/3/howto/logging.html)
 
 ## Benutzung (unter GitBash)
 
