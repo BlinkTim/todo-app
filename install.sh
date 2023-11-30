@@ -7,8 +7,8 @@ $PMGR install -y git
 #https://linux.how2shout.com/installing-mariadb-on-amazon-linux-2023/
 sudo yum install mariadb105-server # läuft nur unter aws, nicht lokal !
 #$PMGR install mysql-server -y
-sudo systemctl start mysqld
-sudo systemctl enable mysqld
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
 $PMGR install python3 python3-pip -y
 # download zipfile and unzip and cd in the new folder
 #wget https://todolist-bucket-1.s3.eu-central-1.amazonaws.com/todo-app.zip
