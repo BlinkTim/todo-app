@@ -20,8 +20,9 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Integrate FastAPI ✅
 - Implement DELETE function ✅
 - Implement Status Update Support ✅
-- Implement .env (dotenv) File Support ⌛
+- Implement .env (dotenv) File Support (db, host, port) ⌛
 - Implement mySQL-Database Integration ✅
+- Rework print() statements to use Python logging ❌
 - Add comments to source code ❌
 - update Readme.md ⌛
 - Finish Userdata Script ⌛
@@ -29,7 +30,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
    * Test locally under WSL/Ubuntu (apt instead of yum) ❌
    * Test standalone on EC2 (Amazon Linux: yum instead of apt) ❌
 - Create a setup script that executes everthing needed ❌
-- Implement CloudFormation Template ⌛
+- Implement CloudFormation Template (Security Group) ⌛
 - Create s3 bucket ✅
 - Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
 
