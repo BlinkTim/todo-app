@@ -5,7 +5,7 @@ $PMGR update -y
 #sudo $PMGR install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
 $PMGR install -y git
 #https://linux.how2shout.com/installing-mariadb-on-amazon-linux-2023/
-sudo yum install mariadb105-server # läuft nur unter aws, nicht lokal !
+sudo yum install -y mariadb105-server # läuft nur unter aws, nicht lokal !
 #$PMGR install mysql-server -y
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
