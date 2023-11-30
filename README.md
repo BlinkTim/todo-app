@@ -26,8 +26,8 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Add comments to source code ❌
 - update Readme.md ⌛
 - Finish Userdata Script ⌛
-   * Also use venv in userdata script ❌
-   * Test locally under WSL/Ubuntu (apt instead of yum) ❌
+   * Also use venv in userdata script ✅
+   * Test locally under WSL/Ubuntu (apt instead of yum) ✅
    * Test standalone on EC2 (Amazon Linux: yum instead of apt) ❌
 - Create a setup script that executes everthing needed ❌
 - Implement CloudFormation Template (Security Group) ⌛
