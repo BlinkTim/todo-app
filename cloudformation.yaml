@@ -28,7 +28,6 @@ Resources:
       AvailabilityZone: eu-central-1a
       VpcId: !Ref myVPC
       CidrBlock: 10.0.0.0/24
-      MapPublicIpOnLaunch: true
       Tags:
         - Key: name
           Value: cloudformation
@@ -38,7 +37,6 @@ Resources:
       AvailabilityZone: eu-central-1b
       VpcId: !Ref myVPC
       CidrBlock: 10.0.1.0/24
-      MapPublicIpOnLaunch: false
       Tags:
         - Key: name
           Value: cloudformation
