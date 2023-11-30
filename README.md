@@ -22,7 +22,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Implement Status Update Support ✅
 - Implement .env (dotenv) File Support (db, host, port) ⌛
 - Implement mySQL-Database Integration ✅
-- Rework print() statements to use Python logging ❌
+- Rework print() statements to use Python logging ✅
 - Add comments to source code ❌
 - update Readme.md ⌛
 - Finish Userdata Script ✅
