@@ -65,18 +65,18 @@ Diese sollten innerhalb eines Python venv installiert werden.
 
 ## Benutzung (unter GitBash)
 
-python -m venv env
+ python -m venv  env
 
-danach environment aktivieren mittels:
+ danach environment  aktivieren mittels:
 
-source env/Scripts/activate
+ source env/Scripts/activate
 
 pip install -r requirements.txt
 
 mysql -u root -p < sql-scripts/01-prepare-db.sql
 
-cd src
-uvicorn main:app --reload
+ cd src
+ uvicorn main:app --reload
 
 Alternativ (innerhalb des src Unterverzeichnis):
 python main.py
