@@ -33,6 +33,8 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Implement CloudFormation Template (Security Group) ⌛
 - Create s3 bucket ✅
 - Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
+- Add regression tests for all main routes ❌
+- Use artillery/faker to stress test the todo app ❌
 
 ## Ressourcen
 Wir erstellen eine Server-Anwendung die auf uvicorn (ASGI) basiert.
