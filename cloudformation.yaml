@@ -129,6 +129,9 @@ Resources:
         yum install python3 python3-pip -y
         pip install -r requirements.txt
         #download zipfile and unzip and cd in the new folder
+        wget url
+        unzip file.zip
+        cd directory
         mysql -u root -p < sql-scripts/01-prepare-db.sql
         cd src
         uvicorn main:app --reload
