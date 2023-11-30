@@ -19,4 +19,4 @@ python3 -m venv env
 pip install -r requirements.txt
 sudo mysql -u root -p < sql-scripts/01-prepare-db.sql
 cd src
-uvicorn main:app --reload
+uvicorn main:app --reload --port 8000 --host 0.0.0.0
