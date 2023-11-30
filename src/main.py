@@ -15,48 +15,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-class TodoItemList(list):
-    def __init__(self, session):
-        self.session = session
-        self.load_initial_data()
 
-    def load_initial_data(self):
-        """Load initial data from the database to sync with the list."""
-        items = self.session.query(database.TodoListItem).all()
-        super().extend(items)
-
-    def append(self, item):
-        if not isinstance(item, database.TodoListItem):
-            raise TypeError("Only TodoItem instances can be added to the list")
-        self.session.add(item)
-        try:
-            self.session.commit()
-            super().append(item)
-        except Exception as e:
-            self.session.rollback()
-            raise e
-
-    def remove(self, item):
-        logging.info("Removing:", item)
-        to_remove = None
-        for myitem in self[:]:
-            logging.info("Current item is ", myitem.id)
-            if str(myitem.id) == item:
-                to_remove = myitem
-                break
-        if to_remove:
-            self.session.delete(to_remove)
-            try:
-                self.session.commit()
-                super().remove(to_remove)
-            except Exception as e:
-                self.session.rollback()
-                raise e
-        else:
-            raise ValueError("Item not found in the list")
-
-
-items = TodoItemList(database.session)
+items = database.TodoItemList(database.session)
 
 @app.post("/save", response_class=HTMLResponse)
 async def save_list(request: Request, item:Annotated[str, Form()]):
