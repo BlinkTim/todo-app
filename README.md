@@ -25,6 +25,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Rework print() statements to use Python logging ✅
 - Add comments to source code ❌
 - update Readme.md ⌛
+- Bugfix: Delete does not work if item is not finished ❌
 - Finish Userdata Script ✅
    * Also use venv in userdata script ✅
    * Test locally under WSL/Ubuntu (apt instead of yum) ✅
