@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-PMGR=apt
+PMGR=yum
 $PMGR update -y 
 # https://tecadmin.net/how-to-install-mysql-8-on-amazon-linux-2/
 #sudo $PMGR install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
