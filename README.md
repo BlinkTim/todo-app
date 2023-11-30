@@ -18,13 +18,14 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Implement routes for DELETE, START and DELETE ✅
 - Use placerholder data ✅
 - Integrate FastAPI and  Pydantic ✅
-- Implement DELETE Funktion ❌
-- Implement Status Update Support ❌
-- Implement .env (dotenv) File Support ❌
-- Implement mySQL-Database Integration (momentan nur database.py) ❌
-- Add comments to source code, update Readme.md ❌
-- Implement Userdata Script ❌
-- Implement CloudFormation Template ❌
+- Implement DELETE Funktion ✅
+- Implement Status Update Support ✅
+- Implement .env (dotenv) File Support ✅
+- Implement mySQL-Database Integration (momentan nur database.py) ✅
+- Add comments to source code, update Readme.md ✅
+- Implement Userdata Script ✅
+- Implement CloudFormation Template ✅
+- Create s3 bucket ✅
 - Test on EC2 ❌
 
 ## Ressourcen

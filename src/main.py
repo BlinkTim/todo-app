@@ -79,19 +79,24 @@ async def delete_route(request: Request, itemId:Annotated[str, Form()]):
 @app.post("/start", response_class=HTMLResponse)
 async def start_route(request: Request, itemId:Annotated[str, Form()]):
     for item in items:
-        if item.id == itemId:
+        print("Prüfe item.id", item.id)
+        print("Teste itemId", itemId)
+        if str(item.id) == itemId:
+            print("itemId ist", itemId)
             if item.status == database.ItemStatus.OPEN:
                  item.status = database.ItemStatus.INPROGRESS
+                 print (itemId)
             break 
-    print("Starting item:", itemId)
+    print("Starting item:", itemId) 
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/finish", response_class=HTMLResponse)
 async def finish_route(request: Request, itemId:Annotated[str, Form()]):
     for item in items:
-        if item.id == itemId:
+        if str(item.id) == itemId:
             if item.status == database.ItemStatus.INPROGRESS:
                  item.status = database.ItemStatus.FINISHED
+                 print(itemId)
             break 
     print("Finishing item:", itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
