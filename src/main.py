@@ -1,12 +1,9 @@
-from enum import Enum
-
 from fastapi import FastAPI, Request, Form 
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from typing import Annotated, List
-from pydantic import BaseModel, UUID4
-import uuid
+from pydantic import BaseModel
 
 import uvicorn
 
@@ -59,13 +56,9 @@ class TodoItemList(list):
 
 items = TodoItemList(database.session)
 
-# app.mount("/static", StaticFiles(directory="static"), name="static")
-
 @app.post("/save", response_class=HTMLResponse)
 async def save_list(request: Request, item:Annotated[str, Form()]):
     print(item)
-    #myuuid = uuid.uuid4()
-    #print('Your UUID is: ' + str(myuuid))
     task=database.TodoListItem(description=item, status=database.ItemStatus.OPEN) 
     items.append(task)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
