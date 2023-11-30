@@ -14,26 +14,33 @@ Erstelle Dir ein Repository in Deinem Github Account und übertrage den Code dor
 Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 
 ## Backlog
-- Adapt template to support looping ✅
+- Adapt template to support looping/conditionals ✅
 - Implement routes for DELETE, START and DELETE ✅
 - Use placerholder data ✅
-- Integrate FastAPI and  Pydantic ✅
-- Implement DELETE Funktion ✅
+- Integrate FastAPI ✅
+- Implement DELETE function ✅
 - Implement Status Update Support ✅
-- Implement .env (dotenv) File Support 
-- Implement mySQL-Database Integration (momentan nur database.py) ✅
-- Add comments to source code, update Readme.md ✅
-- Implement Userdata Script ✅
-- Implement CloudFormation Template ✅
+- Implement .env (dotenv) File Support ⌛
+- Implement mySQL-Database Integration ✅
+- Add comments to source code ❌
+- update Readme.md ⌛
+- Finish Userdata Script ⌛
+    Test locally under WSL/Ubuntu (apt instead of yum)❌
+    Test standalone on EC2 (Amazon Linux: yum instead of apt) ❌
+- Implement CloudFormation Template ⌛
 - Create s3 bucket ✅
-- Test on EC2 ❌
+- Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
 
 ## Ressourcen
 Wir erstellen eine Server-Anwendung die auf uvicorn (ASGI) basiert.
 Wir erstellen verschiedene Routen (Endpoints) die mit FastAPI implementiert werden.
+Wir benutzen Formulare innerhalb der HTML Datei um Daten an Python zu senden.
 Wir benutzen Jinja2 als Templating Engine um HTML Dateien aus einem Verzeichnis namens templates zu laden, und dort bestimmte Variablen zu ersetzen bzw. Bedingungen/Schleifen auszuführen.
 Wir benutzen Pydantic als Datenmodell für die Liste der Todo items, die ID jedes items ist ein Integer (autoincrement).
 Wir verwenden SQLAlchemy für das Speichern innerhalb einer Datenbank (ORM).
+Wir haben ein SQL-Script erstellt für die Erstellung der Datenbank und des nötigen Users mit den entsprechenden Rechten.
+Wir haben eine requirements.txt erstellt die die Abhängigkeiten enthält für unsere Anwendung.
+Diese sollten innerhalb eines Python venv installiert werden.
 
 - [Frontend Intro](https://docs.google.com/presentation/d/1YoxRv7m7NmFjPQwffTqlgyJt0wIOvlMiX2XDnBZWjbY) 
 - [Fastapi tutorial](https://fastapi.tiangolo.com/tutorial/)
