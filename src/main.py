@@ -35,27 +35,20 @@ async def delete_route(request: Request, itemId:Annotated[str, Form()]):
 
 @app.post("/start", response_class=HTMLResponse)
 async def start_route(request: Request, itemId:Annotated[str, Form()]):
-    for item in items:
-        logging.info("Prüfe item.id %s", item.id)
-        logging.info("Teste itemId %s", itemId)
-        if str(item.id) == itemId:
-            logging.info("itemId ist %s", itemId)
-            if item.status == database.ItemStatus.OPEN:
-                 item.status = database.ItemStatus.INPROGRESS
-                 logging.info(itemId)
-            break 
-    logging.info("Starting item: %s", itemId) 
+    if items.find_item(itemId):
+        items.update_status(itemId)
+        logging.info("Starting item: %s", itemId) 
+    else:
+        logging.alert("Item not found: %s", item.id) 
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/finish", response_class=HTMLResponse)
 async def finish_route(request: Request, itemId:Annotated[str, Form()]):
-    for item in items:
-        if str(item.id) == itemId:
-            if item.status == database.ItemStatus.INPROGRESS:
-                 item.status = database.ItemStatus.FINISHED
-                 logging.info(itemId)
-            break 
-    logging.info("Finishing item: %s", itemId)
+    if items.find_item(itemId):
+        items.update_status(itemId)
+        logging.info("Finishing item: %s", itemId)
+    else:
+        logging.alert("Item not found: %s", itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 

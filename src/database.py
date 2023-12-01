@@ -38,8 +38,8 @@ class TodoItemList(list):
         items = self.session.query(TodoListItem).all()
         super().extend(items)
 
-    def find_item(self, item):
-        for item in items:
+    def find_item(self, itemId):
+        for item in self[:]:
             logging.info("Prüfe item.id %s", item.id)
             logging.info("Teste itemId %s", itemId)
             if str(item.id) == itemId:
@@ -48,11 +48,19 @@ class TodoItemList(list):
         return None
  
     def update_status(self, item):
-        logging.info("Changing item status from:%s",item.status)
+        itemObject = self.find_item(item)
+        if itemObject == None:
+            return None
+
+        logging.info("Changing item status from:%s",itemObject.status)
         # TODO: use match here
-        if item.status == database.ItemStatus.OPEN:
-            item.status = database.ItemStatus.INPROGRESS
-        logging.info("Changed item status to: %s", item.status)
+        if itemObject.status == ItemStatus.OPEN:
+            itemObject.status = ItemStatus.INPROGRESS
+        elif itemObject.status == ItemStatus.INPROGRESS:
+            itemObject.status = ItemStatus.FINISHED
+ 
+        self.session.commit()
+        logging.info("Changed item status to: %s", itemObject.status)
 
 
     def append(self, item):
