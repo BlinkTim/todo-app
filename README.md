@@ -33,6 +33,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Create a setup script that executes everthing needed ❌
 - Implement CloudFormation Template (Security Group) ✅
 - Create s3 bucket ✅
+- pip freeze ❌
 - Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
 - Add regression tests for all main routes ❌
 - Use artillery/faker to stress test the todo app ❌
