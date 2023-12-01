@@ -10,7 +10,7 @@ import uvicorn
 
 import database
 
-logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(encoding='utf-8', level=logging.INFO)
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -29,22 +29,22 @@ async def save_list(request: Request, item:Annotated[str, Form()]):
 
 @app.post("/delete", response_class=HTMLResponse)
 async def delete_route(request: Request, itemId:Annotated[str, Form()]):
-    logging.info("Deleting item:", itemId)
+    logging.info("Deleting item: %s", itemId)
     items.remove(itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/start", response_class=HTMLResponse)
 async def start_route(request: Request, itemId:Annotated[str, Form()]):
     for item in items:
-        logging.info("Prüfe item.id", item.id)
-        logging.info("Teste itemId", itemId)
+        logging.info("Prüfe item.id %s", item.id)
+        logging.info("Teste itemId %s", itemId)
         if str(item.id) == itemId:
-            logging.info("itemId ist", itemId)
+            logging.info("itemId ist %s", itemId)
             if item.status == database.ItemStatus.OPEN:
                  item.status = database.ItemStatus.INPROGRESS
                  logging.info(itemId)
             break 
-    logging.info("Starting item:", itemId) 
+    logging.info("Starting item: %s", itemId) 
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 @app.post("/finish", response_class=HTMLResponse)
@@ -55,7 +55,7 @@ async def finish_route(request: Request, itemId:Annotated[str, Form()]):
                  item.status = database.ItemStatus.FINISHED
                  logging.info(itemId)
             break 
-    logging.info("Finishing item:", itemId)
+    logging.info("Finishing item: %s", itemId)
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
 
