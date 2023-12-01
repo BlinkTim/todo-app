@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker
 
 import logging
 
+# FIXME: use dotenv here
 engine = create_engine('mysql+mysqlconnector://todo_user:todo_password@localhost/todos')
 
 Base = declarative_base()
@@ -77,7 +78,7 @@ class TodoItemList(list):
     def remove(self, item):
         logging.info("Removing:", item)
         to_remove = None
-        for myitem in self[:]:
+        for myitem in self[:]: # FIXME: use find_item here
             logging.info("Current item is ", myitem.id)
             if str(myitem.id) == item:
                 to_remove = myitem

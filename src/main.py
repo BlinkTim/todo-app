@@ -17,7 +17,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-
 items = database.TodoItemList(database.session)
 
 @app.post("/save", response_class=HTMLResponse)
@@ -56,6 +55,7 @@ async def finish_route(request: Request, itemId:Annotated[str, Form()]):
 async def root_route(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "items":items})
 
+# FIXME use dotenv for port / log level
 def start_server():
     uvicorn.run("main:app", host="0.0.0.0", port=8000, log_level="debug", reload=True)
 
