@@ -10,6 +10,8 @@ import uvicorn
 
 import database
 
+logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
+
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
