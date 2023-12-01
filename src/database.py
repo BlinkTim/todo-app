@@ -38,6 +38,23 @@ class TodoItemList(list):
         items = self.session.query(TodoListItem).all()
         super().extend(items)
 
+    def find_item(self, item):
+        for item in items:
+            logging.info("Prüfe item.id %s", item.id)
+            logging.info("Teste itemId %s", itemId)
+            if str(item.id) == itemId:
+                logging.info("itemId ist %s", itemId)
+                return item
+        return None
+ 
+    def update_status(self, item):
+        logging.info("Changing item status from:%s",item.status)
+        # TODO: use match here
+        if item.status == database.ItemStatus.OPEN:
+            item.status = database.ItemStatus.INPROGRESS
+        logging.info("Changed item status to: %s", item.status)
+
+
     def append(self, item):
         if not isinstance(item, TodoListItem):
             raise TypeError("Only TodoItem instances can be added to the list")
