@@ -23,6 +23,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Implement .env (dotenv) File Support (db, host, port) ⌛
 - Implement mySQL-Database Integration ✅
 - Rework print() statements to use Python logging ✅
+- Add more/better logging messages ❌
 - Add comments to source code ❌
 - update Readme.md ⌛
 - Bugfix: Delete does not work if item is not finished ❌
@@ -33,6 +34,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Create a setup script that executes everthing needed ❌
 - Implement CloudFormation Template (Security Group) ✅
 - Create s3 bucket ✅
+- add unit tests ❌
 - pip freeze ❌
 - Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
 - Add regression tests for all main routes ❌
