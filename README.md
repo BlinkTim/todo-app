@@ -29,9 +29,9 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
 - Finish Userdata Script ✅
    * Also use venv in userdata script ✅
    * Test locally under WSL/Ubuntu (apt instead of yum) ✅
-   * Test standalone on EC2 (Amazon Linux: yum instead of apt) ❌
+   * Test standalone on EC2 (Amazon Linux: yum instead of apt) ✅
 - Create a setup script that executes everthing needed ❌
-- Implement CloudFormation Template (Security Group) ⌛
+- Implement CloudFormation Template (Security Group) ✅
 - Create s3 bucket ✅
 - Extend CloudFormation to use RDS/Aurora instead of mySQL? ❌
 - Add regression tests for all main routes ❌
