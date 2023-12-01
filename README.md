@@ -33,6 +33,7 @@ Achte darauf, dass Du die Inhalte des VENV nicht mit in Dein Repo überträgst.
    * Test standalone on EC2 (Amazon Linux: yum instead of apt) ✅
 - Create a setup script that executes everthing needed ❌
 - Implement CloudFormation Template (Security Group) ✅
+   * CloudFormation via CLI
 - Create s3 bucket ✅
 - add unit tests ❌
 - pip freeze ❌
